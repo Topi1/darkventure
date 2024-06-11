@@ -9,13 +9,24 @@ import { Preloader } from './scenes/Preloader';
 const config = {
     type: Phaser.AUTO,
     width: 320,
-    height: 170,
+    height: 180,
+    pixelArt: true,
     parent: 'game-container',
-    backgroundColor: '#028af8',
+    backgroundColor: '#081612',
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
+    physics: {
+        
+        default: "arcade",
+        arcade: {
+            gravity: { y: 0 },
+            //debug: true,
+            //fixedStep: true
+        }
+        
+    }, 
     scene: [
         Boot,
         Preloader,

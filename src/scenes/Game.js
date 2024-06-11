@@ -1,4 +1,7 @@
 import { Scene } from 'phaser';
+import Animations from './Animations';
+import ObjectAnimations from './ObjectAnimations';
+import { PlayerControls } from './PlayerControls';
 
 export class Game extends Scene
 {
@@ -9,20 +12,39 @@ export class Game extends Scene
 
     create ()
     {
-        this.cameras.main.setBackgroundColor(0x00ff00);
+        Animations.create(this)
+        ObjectAnimations.create(this)
 
-        this.add.image(512, 384, 'background').setAlpha(0.5);
+        this.priest = new PlayerControls(this, 120,100)
 
-        this.add.text(512, 384, 'Make something fun!\nand share it with us:\nsupport@phaser.io', {
-            fontFamily: 'Arial Black', fontSize: 38, color: '#ffffff',
-            stroke: '#000000', strokeThickness: 8,
-            align: 'center'
-        }).setOrigin(0.5);
+        this.cameras.main.startFollow(this.priest,true,1,1)
+        this.cameras.main.setDeadzone(50, 20);
 
-        this.input.once('pointerdown', () => {
+        const testMap = this.make.tilemap({ key: "fantasyTest" });
 
-            this.scene.start('GameOver');
+        const ground = testMap.addTilesetImage("ground", "groundtiles", 16,16);
 
-        });
+        const firstLayer = testMap.createLayer("ground", ground)
+        firstLayer.depth = 1;
+
+        firstLayer.setCollisionByProperty({ collides: true });
+
+        this.physics.add.collider(this.priest, [
+            firstLayer
+        ])
+
+        this.fire1 = this.add.sprite(58,50,"fire")
+        this.fire1.depth = 2
+        this.fire1.anims.play("firePlay")
+
+        this.fire2 = this.add.sprite(198,50,"fire")
+        this.fire2.depth = 2
+        this.fire2.anims.play("firePlay")
+
+       
+    }
+
+    update() {
+        this.priest.update()
     }
 }

@@ -33,6 +33,21 @@ export class Preloader extends Scene
         this.load.setPath('assets');
 
         this.load.image('logo', 'logo.png');
+
+
+        //CHRS
+        this.load.spritesheet("priest", "chrs/priest.png", {frameWidth: 32, frameHeight: 32})
+
+        //TILES
+        this.load.image("groundtiles", "tiles/groundtile.png")
+
+
+        //MAPS
+        this.load.tilemapTiledJSON("fantasyTest", "maps/fantasyTest.json")
+
+
+        //OBJECTS
+        this.load.spritesheet("fire", "objects/fire.png", {frameWidth: 16, frameHeight:32})
     }
 
     create ()
@@ -41,6 +56,6 @@ export class Preloader extends Scene
         //  For example, you can define global animations here, so we can use them in other scenes.
 
         //  Move to the MainMenu. You could also swap this for a Scene Transition, such as a camera fade.
-        this.scene.start('MainMenu');
+        this.scene.start('Game');
     }
 }
