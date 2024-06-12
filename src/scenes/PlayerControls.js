@@ -17,6 +17,9 @@ export class PlayerControls extends Phaser.Physics.Arcade.Sprite {
 
         this.depth = 8;
         this.scale = 1;
+
+        this.setSize(16, 10);
+        this.body.setOffset(8, 21);
         
         
         this.scene = scene;

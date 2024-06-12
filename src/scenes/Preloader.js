@@ -48,6 +48,12 @@ export class Preloader extends Scene
 
         //OBJECTS
         this.load.spritesheet("fire", "objects/fire.png", {frameWidth: 16, frameHeight:32})
+        this.load.spritesheet("campfire", "objects/campfire.png", {frameWidth: 16, frameHeight:16})
+
+
+        //UI
+
+        
     }
 
     create ()

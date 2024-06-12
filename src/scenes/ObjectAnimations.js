@@ -13,6 +13,13 @@ export default class ObjectAnimations {
                 frameRate: 5,
                 repeat: -1  // Repeat indefinitely
             });
+
+            addAnimation({
+                key: 'campfire',  // The key for this animation
+                frames: scene.anims.generateFrameNumbers('campfire', { start: 0, end: 2 }),
+                frameRate: 5,
+                repeat: -1  // Repeat indefinitely
+            });
             
 
         }
