@@ -16,6 +16,7 @@ export class IngameUI extends Scene {
 
         this.load.spritesheet("inventoryBtn", "assets/ui/inventoryBtn.png", {frameWidth: 19, frameHeight: 18})
         this.load.spritesheet("skillsBtn", "assets/ui/skillsBtn.png", {frameWidth: 19, frameHeight: 18})
+        this.load.spritesheet("journalBtn", "assets/ui/journalBtn.png", {frameWidth: 19, frameHeight: 18})
 
         this.load.spritesheet("priestPortrait", "assets/portraits/priestPortrait.png", {frameWidth: 44, frameHeight: 26})
         this.load.spritesheet("magusPortrait", "assets/portraits/magusPortrait.png", {frameWidth: 44, frameHeight: 26})
@@ -55,6 +56,16 @@ export class IngameUI extends Scene {
        .on('pointerout', () => {this.skillsButton.setFrame(0)});
        this.skillsButton.depth = 21
 
+       //Journal Button
+       this.journalButton = this.add.sprite(272, 162, "journalBtn").setFrame(0)
+       .setInteractive({ useHandCursor: true })
+       .on('pointerdown', () => {
+           this.toggleInventory();
+       })
+       .on('pointerover', () => {this.journalButton.setFrame(1)})
+       .on('pointerout', () => {this.journalButton.setFrame(0)});
+       this.journalButton.depth = 21
+
 
 
        //PORTRAITS
@@ -74,13 +85,13 @@ export class IngameUI extends Scene {
        //this.priestName.depth = 22
 
        //Magus Portrait
-       this.magusPortrait = this.add.sprite(285, 82, "magusPortrait").setFrame(2)
+       this.magusPortrait = this.add.sprite(285, 82, "magusPortrait").setFrame(0)
        .setInteractive({ useHandCursor: true })
        .on('pointerdown', () => {
            this.toggleInventory();
        })
-       .on('pointerover', () => {this.magusPortrait.setFrame(3)})
-       .on('pointerout', () => {this.magusPortrait.setFrame(2)});
+       .on('pointerover', () => {this.magusPortrait.setFrame(1)})
+       .on('pointerout', () => {this.magusPortrait.setFrame(0)});
        this.magusPortrait.depth = 21
 
        //War Portrait
