@@ -17,6 +17,7 @@ export class IngameUI extends Scene {
         this.load.spritesheet("inventoryBtn", "assets/ui/inventoryBtn.png", {frameWidth: 19, frameHeight: 18})
         this.load.spritesheet("skillsBtn", "assets/ui/skillsBtn.png", {frameWidth: 19, frameHeight: 18})
         this.load.spritesheet("journalBtn", "assets/ui/journalBtn.png", {frameWidth: 19, frameHeight: 18})
+        this.load.spritesheet("homeBtn", "assets/ui/homeBtn.png", {frameWidth: 19, frameHeight: 18})
 
         this.load.spritesheet("priestPortrait", "assets/portraits/priestPortrait.png", {frameWidth: 44, frameHeight: 26})
         this.load.spritesheet("magusPortrait", "assets/portraits/magusPortrait.png", {frameWidth: 44, frameHeight: 26})
@@ -65,6 +66,16 @@ export class IngameUI extends Scene {
        .on('pointerover', () => {this.journalButton.setFrame(1)})
        .on('pointerout', () => {this.journalButton.setFrame(0)});
        this.journalButton.depth = 21
+
+       //Home Button
+       this.homeButton = this.add.sprite(297, 162, "homeBtn").setFrame(0)
+       .setInteractive({ useHandCursor: true })
+       .on('pointerdown', () => {
+           this.toggleInventory();
+       })
+       .on('pointerover', () => {this.homeButton.setFrame(1)})
+       .on('pointerout', () => {this.homeButton.setFrame(0)});
+       this.homeButton.depth = 21
 
 
 
