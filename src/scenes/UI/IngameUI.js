@@ -8,7 +8,8 @@ export class IngameUI extends Scene {
     }
 
     preload() {
-        this.load.bitmapFont('baseFontUI', 'assets/fonts/baseFont_0.png', 'assets/fonts/baseFont.fnt')
+        
+        this.load.bitmapFont('baseUI', 'assets/fonts/base_0.png', 'assets/fonts/base.fnt')
 
         this.load.image("ingameBorders", "assets/ui/ingameBorders.png")
         this.load.image("mainUI", "assets/ui/mainUI.png")
@@ -91,9 +92,8 @@ export class IngameUI extends Scene {
        .on('pointerout', () => {this.priestPortrait.setFrame(0)});
        this.priestPortrait.depth = 21
 
-       //this.priestName = this.add.bitmapText(280,112,"baseFontUI","Aserius",16)
-       //this.priestName.scale = 0.5
-       //this.priestName.depth = 22
+
+       
 
        //Magus Portrait
        this.magusPortrait = this.add.sprite(285, 82, "magusPortrait").setFrame(0)
@@ -116,6 +116,16 @@ export class IngameUI extends Scene {
        this.warPortrait.depth = 21
 
 
+       //HP and MP texts
+
+       this.secondHP = this.add.text(287, 36, 'HP:12', { fontFamily: 'custom', fontSize: '16px', color: '#a49983' }).setDepth(22)
+       this.secondMP = this.add.text(287, 46, 'MP:5', { fontFamily: 'custom', fontSize: '16px', color: '#a49983' }).setDepth(22)
+
+       this.thirdHP = this.add.text(287, 66, 'HP:9', { fontFamily: 'custom', fontSize: '16px', color: '#a49983' }).setDepth(22)
+       this.thirdMP = this.add.text(287, 76, 'MP:10', { fontFamily: 'custom', fontSize: '16px', color: '#a49983' }).setDepth(22)
+
+       this.fourthHP = this.add.text(287, 96, 'HP:10', { fontFamily: 'custom', fontSize: '16px', color: '#a49983' }).setDepth(22)
+       this.fourthMP = this.add.text(287, 106, 'MP:8', { fontFamily: 'custom', fontSize: '16px', color: '#a49983' }).setDepth(22)
 
         
     }

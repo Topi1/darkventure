@@ -1,8 +1,15 @@
+@font-face {
+    font-family: 'custom';
+    src: url('assets/fonts/m3x6.ttf') format('truetype');
+}
+
+
 body {
     margin: 0;
     padding: 0;
     color: rgba(255, 255, 255, 0.87);
     background-color: #000000;
+    font-family: "custom";
 }
 
 #app {
@@ -13,3 +20,5 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
