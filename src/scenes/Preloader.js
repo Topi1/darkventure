@@ -36,7 +36,9 @@ export class Preloader extends Scene
 
 
         //CHRS
-        this.load.spritesheet("priest", "chrs/priest.png", {frameWidth: 32, frameHeight: 32})
+        this.load.spritesheet("warrior", "chrs/warSheet.png", {frameWidth: 32, frameHeight: 32})
+        this.load.spritesheet("magus", "chrs/magusSheet.png", {frameWidth: 32, frameHeight: 32})
+        this.load.spritesheet("priest", "chrs/priestSheet.png", {frameWidth: 32, frameHeight: 32})
 
         //TILES
         this.load.image("groundtiles", "tiles/groundtile.png")

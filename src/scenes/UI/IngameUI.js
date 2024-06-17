@@ -86,7 +86,7 @@ export class IngameUI extends Scene {
        this.priestPortrait = this.add.sprite(285, 112, "priestPortrait").setFrame(0)
        .setInteractive({ useHandCursor: true })
        .on('pointerdown', () => {
-           this.toggleInventory();
+           this.changeCharacter("priest");
        })
        .on('pointerover', () => {this.priestPortrait.setFrame(1)})
        .on('pointerout', () => {this.priestPortrait.setFrame(0)});
@@ -99,7 +99,7 @@ export class IngameUI extends Scene {
        this.magusPortrait = this.add.sprite(285, 82, "magusPortrait").setFrame(0)
        .setInteractive({ useHandCursor: true })
        .on('pointerdown', () => {
-           this.toggleInventory();
+        this.changeCharacter("magus");
        })
        .on('pointerover', () => {this.magusPortrait.setFrame(1)})
        .on('pointerout', () => {this.magusPortrait.setFrame(0)});
@@ -109,7 +109,7 @@ export class IngameUI extends Scene {
        this.warPortrait = this.add.sprite(285, 52, "warPortrait").setFrame(0)
        .setInteractive({ useHandCursor: true })
        .on('pointerdown', () => {
-           this.toggleInventory();
+        this.changeCharacter("warrior");
        })
        .on('pointerover', () => {this.warPortrait.setFrame(1)})
        .on('pointerout', () => {this.warPortrait.setFrame(0)});
@@ -128,6 +128,16 @@ export class IngameUI extends Scene {
        this.fourthMP = this.add.text(287, 106, 'MP:8', { fontFamily: 'custom', fontSize: '16px', color: '#a49983' }).setDepth(22)
 
         
+    }
+
+    changeCharacter(character) {
+        console.log("Changing character to: " + character);  // Debug log
+        this.selectedCharacter = character;
+        localStorage.setItem('selectedCharacter', character);
+        this.game.events.emit('characterChanged', character);
+        //this.scene.registry.set('currentCharacter', character);
+        //this.scene.events.emit('characterChanged', character);
+
     }
 
     showUI() {
