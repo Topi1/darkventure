@@ -4,6 +4,7 @@ import { GameOver } from './scenes/GameOver';
 import { MainMenu } from './scenes/MainMenu';
 import { Preloader } from './scenes/Preloader';
 import { IngameUI } from './scenes/UI/IngameUI';
+import { Fight } from './scenes/Ingame/Fight';
 
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
@@ -34,7 +35,8 @@ const config = {
         MainMenu,
         Game,
         GameOver,
-        IngameUI
+        IngameUI,
+        Fight
     ]
 };
 
